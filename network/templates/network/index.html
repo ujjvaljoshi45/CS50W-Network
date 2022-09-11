@@ -1,0 +1,20 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<center>
+    {% if user.is_authenticated %}
+    <div id="post-form-div"
+        style="margin: 25px; padding:25px; border: 2px solid black; display: inline-block; background-color: rgb(212, 202, 202); text-align: center; ">
+        <form id="post-form">
+            <h3>Add Post</h3>
+            <input id="post-username" type="hidden" value="{{request.user}}">
+            <textarea id="post-body" rows="5" cols="80" style="padding: 16px;"></textarea> <br>
+            <input id="post-form-submit-btn" type="button" value="submit">
+        </form>
+    </div>
+    {% endif %}
+</center>
+<div id="post-view"></div>
+<div id="nav-btn-div" style="text-align: end; margin:10px; padding:10px; "></div>
+
+{% endblock %}

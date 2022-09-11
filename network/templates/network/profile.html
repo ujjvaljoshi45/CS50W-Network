@@ -1,0 +1,23 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{%  block body%}
+<div id="profile-view" style="margin-top: 10%;  text-align: center; display: block;">
+    <h1 id="post-username">{{profile.user}}</h1>
+    <h5 id="follwer-count"> Follower : {{profile.follower.count}}</h5>
+    <h5 id="following-count"> Following : {{profile.following.count}}</h5>
+    {% if profile.user != request.user %}
+    <div>
+        <input id="profile-user" type="hidden" value="{{profile.user.id}}">
+        {% if check %}
+        <button id="uf-btn"  value="{{profile.user}}">Unfollow</button>
+        {% endif %}
+        {% if not check %}
+        <button id="f-btn"  value="{{profile.user}}">Follow</button>
+        {% endif %}
+        
+    </div>
+    {% endif %}
+</div>
+<script src="/static/network/profile.js"></script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'network/layout.html' %}
+
+{% block body %}
+<div>
+    {% for user in following %}
+    <ul>
+        <li>{{user.username}}</li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}
